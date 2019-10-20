@@ -1,0 +1,90 @@
+{
+    // rust-analyzer
+    "rust-analyzer.rainbowHighlightingOn": false,
+    "rust-analyzer.highlightingOn": false,
+    "rust-analyzer.enableCargoWatchOnStartup": "enabled",
+    "rust-analyzer.showWorkspaceLoadedNotification": false,
+    "rust-analyzer.enableEnhancedTyping": true,
+    "rust-analyzer.displayInlayHints": false,
+    "rust-analyzer.cargo-watch.command": "clippy",
+    // terminal
+    "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7-preview\\pwsh.exe",
+    "terminal.integrated.drawBoldTextInBrightColors": true,
+    "terminal.integrated.windowsEnableConpty": false,
+    "terminal.integrated.rendererType": "canvas",
+    "terminal.integrated.cursorStyle": "block",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontFamily": "Cascadia Code",
+    "terminal.integrated.fontWeight": "200",
+    "terminal.integrated.fontWeightBold": "400",
+    // editor    
+    "editor.renderIndentGuides": false,
+    "editor.lineNumbers": "interval",
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "solid",
+    "editor.rulers": [
+        80,
+    ],
+    "editor.minimap.enabled": false,
+    "editor.fontLigatures": true,
+    "editor.codeLens": false,
+    "editor.scrollBeyondLastLine": true,
+    "editor.folding": true,
+    "editor.formatOnSave": true,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
+    "editor.fontSize": 16,
+    "editor.fontFamily": "Cascadia Code",
+    "editor.multiCursorModifier": "alt",
+    "editor.lightbulb.enabled": false,
+    // workbench
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.editor.showIcons": false,
+    "workbench.statusBar.visible": false,
+    "workbench.iconTheme": null,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.editor.enablePreview": false,
+    "workbench.panel.defaultLocation": "right",
+    "workbench.activityBar.visible": false,
+    "workbench.settings.editor": "json",
+    "workbench.settings.useSplitJSON": false,
+	"workbench.colorTheme": "Delta Color Theme",        
+    "breadcrumbs.enabled": false,
+    // speed up indexing
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/target/**": true
+    },
+    // customizations
+    "customizeUI.font.monospace": "Cascadia Code",
+    "customizeUI.font.regular": "Cascadia Code",
+    "customizeUI.fontSizeMap": {
+        "13px": "13px",
+        "monospace": "13px"
+    },
+    "customizeUI.stylesheet": {
+        ".tabs-container .tab": "height: 18px !important",
+        ".tabs": "height: 22px !important",
+        "[aria-label='Editor actions']": "display: none !important;",
+    },
+    // other stuff
+    "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 0,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "update.mode": "manual",
+    "files.insertFinalNewline": true,
+    "C_Cpp.updateChannel": "Insiders",
+    "extensions.ignoreRecommendations": false,
+    "screencastMode.verticalOffset": 0,
+    "screencastMode.onlyKeyboardShortcuts": true,    
+    "workbench.colorCustomizations": {
+        "[Delta Color Theme]": {
+            "editorWarning.foreground": "#00b7ff",
+            "editorError.foreground": "#ff0000",
+            "editorInfo.foreground": "#3cff00"
+        }
+    },       
+}

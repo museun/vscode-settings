@@ -1,0 +1,260 @@
+{
+	// Place your snippets for rust here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"fn": {
+		"prefix": "fn",
+		"body": [
+			"fn $1($2) -> $3 {",
+			"\t$4",
+			"\tunimplemented!()",
+			"}"
+		],
+		"description": "insert a function"
+	},
+	"test": {
+		"prefix": "test",
+		"body": [
+			"#[test]",
+			"fn $1() {",
+			"\t$2",
+			"}",
+		],
+		"description": "insert a unit test function",
+	},
+	"macro_rules": {
+		"prefix": "mac",
+		"body": [
+			"macro_rules! $1 {",
+			"\t($$2:$3) => {",
+			"\t\t$4",
+			"\t};",
+			"}"
+		],
+		"description": "insert a `macro by examples` definition"
+	},
+	"unimplemented": {
+		"prefix": "unimpl",
+		"body": [
+			"unimplemented!()"
+		],
+		"description": "insert the unimplemented macro"
+	},
+	"unreachable": {
+		"prefix": "unrea",
+		"body": [
+			"unreachable!()"
+		],
+		"description": "insert the unreachable macro"
+	},
+	"test module": {
+		"prefix": "tests",
+		"body": [
+			"#[cfg(test)]",
+			"mod tests {",
+			"use super::*;",
+			"\t#[test]",
+			"\tfn $1() {",
+			"\t\t$2",
+			"\t}",
+			"}"
+		],
+		"description": "generate a test module, with a unit test in it"
+	},
+	"debug": {
+		"prefix": "debug",
+		"body": [
+			"impl std::fmt::Debug for $1 {",
+			"\tfn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {",
+			"\t\twrite!(f, \"{}\", $2)",
+			"\t}",
+			"}"
+		],
+		"description": "implements std::fmt::Debug for type"
+	},
+	"display": {
+		"prefix": "display",
+		"body": [
+			"impl std::fmt::Display for $1 {",
+			"\tfn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {",
+			"\t\twrite!(f, \"{}\", $2)",
+			"\t}",
+			"}"
+		],
+		"description": "implements std::fmt::Display for type"
+	},
+	"error": {
+		"prefix": "error",
+		"body": [
+			"impl std::error::Error for $1 {",
+			"\tfn source(&self) -> Option<&(dyn std::error::Error + 'static)> {",
+			"\t\tNone",
+			"\t}",
+			"}"
+		]
+	},
+	"display and error": {
+		"prefix": "disperror",
+		"body": [
+			"impl std::fmt::Display for $1 {",
+			"\tfn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {",
+			"\t\twrite!(f, \"{}\", $2)",
+			"\t}",
+			"}",
+			"impl std::error::Error for $1 {",
+			"\tfn source(&self) -> Option<&(dyn std::error::Error + 'static)> {",
+			"\t\tNone",
+			"\t}",
+			"}"
+		]
+	},
+	"asref": {
+		"prefix": "asref",
+		"body": [
+			"impl std::convert::AsRef<$2> for $1 {",
+			"\tfn as_ref(&self) -> &$2 {",
+			"\t\t$3",
+			"\t}",
+			"}",
+		]
+	},
+	"deref": {
+		"prefix": "deref",
+		"body": [
+			"impl std::ops::Deref for $1 {",
+			"\ttype Target = $2;",
+			"\tfn deref(&self) -> &Self::Target {",
+			"\t\t&self.$3",
+			"\t}",
+			"}"
+		]
+	},
+	"deref_mut": {
+		"prefix": "deref_mut",
+		"body": [
+			"impl std::ops::DerefMut for $1 {",
+			"\tfn deref_mut(&mut self) -> &mut Self::Target {",
+			"\t\t&mut self.$2",
+			"\t}",
+			"}"
+		]
+	},
+	"iterator": {
+		"prefix": "iterator",
+		"body": [
+			"impl Iterator for $1 {",
+			"\ttype Item = $2;",
+			"\tfn next(&mut self) -> Option<Self::Item> {",
+			"\t\t$3",
+			"\t}",
+			"}"
+		]
+	},
+	"default": {
+		"prefix": "default",
+		"body": [
+			"impl Default for $1 {",
+			"\tfn default() -> Self {",
+			"\t\t$2",
+			"\t}",
+			"}",
+		]
+	},
+	"partial": {
+		"prefix": "partialeq",
+		"body": [
+			"impl PartialEq for $1 {",
+			"\tfn eq(&self, other: &Self) -> bool{",
+			"\t\t$2",
+			"\t}",
+			"}"
+		]
+	},
+	"impl": {
+		"prefix": "impl",
+		"body": [
+			"impl $1 {",
+			"\t$2",
+			"}",
+		]
+	},
+	"impl trait": {
+		"prefix": "implt",
+		"body": [
+			"impl $1 for $2 {",
+			"\t$3",
+			"}",
+		]
+	},
+	"from trait": {
+		"prefix": "from",
+		"body": [
+			"impl From<$1> for $2 {",
+			"\tfn from($3: $1) -> Self {",
+			"\t\t$4",
+			"\t}",
+			"}",
+		]
+	},
+	"drop": {
+		"prefix": "drop",
+		"body": [
+			"impl Drop for $1 {",
+			"\tfn drop(&mut self) {",
+			"\t\t$2",
+			"\t}",
+			"}",
+		]
+	},
+	"logger": {
+		"prefix": "logger",
+		"description": "insert invocation of flexi_logger",
+		"body": [
+			"flexi_logger::Logger::with_env_or_str(\"$1=trace\").start().unwrap();"
+		],
+	},
+	"loggerf": {
+		"prefix": "loggerf",
+		"description": "insert invocation of flexi_logger with detailed format",
+		"body": [
+			"flexi_logger::Logger::with_env_or_str(\"$1=trace\")",
+			".format(|w, now, record| {",
+			"\twrite!(",
+			"\t\tw,",
+			"\t\t\"[{}] {} [{}:{}]: {}\",",
+			"\t\tnow.now().format(\"%H:%M:%S%.6f\"),",
+			"\t\trecord.level(),",
+			"\t\trecord.module_path().unwrap_or(\"<unnamed>\"),",
+			"\t\trecord.line().unwrap_or(0),",
+			"\t\t&record.args()",
+			"\t)",
+			"})",
+			".start()",
+			".unwrap();",
+		],
+	},
+	"thread spawn": {
+		"prefix": "spawn",
+		"description": "inserts an std::thread::spawn() call",
+		"body": [
+			"let $3_handle = {\nlet $1 = Arc::clone(&$1);\nstd::thread::spawn(move || $2)\n};$4"
+		],
+	},
+	"if err != nil": {
+		"prefix": "if err != nil",
+		"description": "exceptional exceptions",
+		"body": [
+			"$1?;"
+		]
+	}
+}
